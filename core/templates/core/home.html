@@ -1,0 +1,17 @@
+{% load static %}
+<!--Sirve para poder cargar los archivos estaticos del core -->
+<h1>Hola mundo</h1>
+<!--Llamar a las variables con doble llaves nombre y edad creados en el views.py-->
+<p>Nombre:{{ nombre }}</p>
+<p>Edad: {{ edad }}</p>
+<!--Recorrer lista comida con for con lenguaje "python"-->
+<ol>
+    {% for comida in comidas %}
+      <li>{{comida}}</li>
+    {%endfor%}
+</ol>
+<p>{{nombre}} tiene un "Hijo" llamdo {{hijo.nombre}}
+    que tiene {{hijo.edad}} años de edad.
+</p>
+<img src="{% static 'core/img/gon.jpg' %}" alt="gon">
+
