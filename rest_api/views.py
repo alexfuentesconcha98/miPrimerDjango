@@ -4,8 +4,11 @@ from core.models import Vehiculo
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-from rest_framework.decorators import api_view 
+from rest_framework.decorators import api_view
+#from rest_framework.decorators.csrf import csrf_exempt
 # Create your views here.
+#@csrf_exempt
+@api_view(['GET','POST'])
 def vehiculos(request):
     #lista todos los vehiculos
     if request.method == 'GET':
@@ -14,8 +17,8 @@ def vehiculos(request):
         return Response(serializer.data) 
     # Agrega vehiculo
     elif request.method == 'POST':
-        data = JSONParser().parset(request)
-        serializer = VehiculoSerializer(dato=data)
+        data = JSONParser().parse(request)
+        serializer = VehiculoSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
