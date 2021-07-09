@@ -1,0 +1,4 @@
+# instalar api rest
+  - Comando: 1.-pip install djangorestframework
+# Crear carpeta api_rest
+  - Comando: 2.-python manage.py startapp rest_api
